@@ -1,59 +1,74 @@
 @import "../../basic.scss";
 $bg-color: lavender;
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    overflow: hidden;
-    background-color: $bg-color;
-    background-image: linear-gradient($bg-color, white);
+body {
+  background-color: $bg-color;
 }
-
-.image-container{ 
-    position: relative;  
-    width: 400px;
-    height: 300px;
-    overflow: hidden;
-    border: 5px solid black;
-    border-radius: 5px;
-    img{
-        position: absolute;
-        left: -400px;
-        display: block;
-        width: 400px;        
-        height: 200px;
-        background-size: cover;
-        object-fit: cover;
-        object-position: top center;
-        &.visible{
-            transition: ease-out 500ms left;
-            left: 0;
-            
-        }
-    }
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  background-image: linear-gradient($bg-color, white);
+  overflow: hidden;
 }
-
-.btn-container{
+.image-container {
+  position: relative;
+  width: 30vw;
+  height: 300px;
+  overflow: hidden;
+  border: 5px solid black;
+  border-radius: 5px;
+  img {
     position: absolute;
-    bottom: 20px;
-    width: 100%;
-    margin-top: 1em;
-    text-align: center;
-    .btn{
-        
-        padding: .5em 1em;
-        background-image: linear-gradient(orange,teal);
-        color: white;
-        text-transform: uppercase;
-        border-style: none;
-        border-radius: 1em;
-        cursor: pointer;
-        &:active{
-            background-image: linear-gradient(teal,orange);
-        }
-        &.btn-hidden{
-            display: none;
-        }
+    &:nth-child(even) {
+      left: -400%;
     }
+    &:nth-child(odd) {
+      left: -500%;
+    }
+    &:nth-child(1) {
+      left: 0;
+    }
+    &:nth-child(2) {
+      left: -100%;
+    }
+    &:nth-child(3) {
+      left: -200%;
+    }
+    &:nth-child(4) {
+      left: -300%;
+    }
+
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    object-fit: cover;
+    object-position: top center;
+    transition: ease-in 500ms left;
+    &.visible {
+      transition: ease-out 500ms left;
+    }
+  }
+}
+
+.btn-container {
+  margin-top: 1em;
+  text-align: center;
+  .btn {
+    padding: 0.5em 1em;
+    background-image: linear-gradient(orange, teal);
+    color: white;
+    text-transform: uppercase;
+    border-style: none;
+    border-radius: 1em;
+    cursor: pointer;
+    &:active {
+      background-image: linear-gradient(teal, orange);
+    }
+    &.btn-hidden {
+      visibility: hidden;
+    }
+  }
 }
