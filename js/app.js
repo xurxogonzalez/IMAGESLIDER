@@ -52,6 +52,27 @@ const retroceder = (e) => {
 }
 
 
+const img = new Image();
+img.classList.add("imagen");
+img.style.width = "50vw";
+document.querySelector("body").prepend(img);
+img.src = "../img/loader.gif";
+const removeLoader = () => {
+    img.parentElement.removeChild(img);
+}
+
+
+
+/**
+ * Eventos
+ */
+window.addEventListener(
+    "load",
+    removeLoader
+);
+
+
+
 btnNext.addEventListener(
     "click",
     avanzar
