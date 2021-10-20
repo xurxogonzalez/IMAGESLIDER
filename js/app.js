@@ -1,6 +1,9 @@
 "use strict";
 /**
- * 
+ * array.prototype.findIndex
+ * element.classList.remove()
+ * element.classList.add()
+ * new Image()
  */
 const images = document.querySelectorAll("img");
 let itemsImg = [...images];
